@@ -15,7 +15,8 @@ var prerender = module.exports = function(req, res, next) {
         return res.end(cachedRender);
       } else if (typeof cachedRender == 'object') {
         res.writeHead(cachedRender.status || 200, {
-          "Content-Type": "text/html"
+          "Content-Type": "text/html",
+          ...(cachedRender.headers || {}),
         });
         return res.end(cachedRender.body || '');
       }
