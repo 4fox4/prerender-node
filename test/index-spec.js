@@ -2,7 +2,6 @@ var assert = require('assert')
   , sinon = require('sinon')
   , nock = require('nock')
   , prerender = require('../index')
-  , request    = require('request')
   , zlib = require('zlib')
   , bot = 'Baiduspider+(+http://www.baidu.com/search/spider.htm)'
   , user = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36';

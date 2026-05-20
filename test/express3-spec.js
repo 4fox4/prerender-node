@@ -1,6 +1,5 @@
 var supertest = require('supertest')
-  , nock = require('nock')
-  , request = require('request');
+  , nock = require('nock');
 
 describe('prerender-node in Express 3', function(){
 

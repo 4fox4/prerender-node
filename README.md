@@ -108,10 +108,15 @@ app.use(require('prerender-node').set('forwardHeaders', true));
 
 ### prerenderServerRequestOptions
 
-Option to add options to the request sent to the prerender server.
+Option to add options to the request sent to the prerender server. As of v4, requests use Node's native `http`/`https` modules, so accepted keys match [`http.request` options](https://nodejs.org/api/http.html#httprequestoptions-callback) (e.g. `timeout`, `agent`, `headers`). The default timeout is 30 seconds.
+
 ```js
-app.use(require('prerender-node').set('prerenderServerRequestOptions', {}));
+app.use(require('prerender-node').set('prerenderServerRequestOptions', {
+  timeout: 60000
+}));
 ```
+
+> **Note for users upgrading from v3.x:** previously this library used the deprecated `request` module. Options specific to `request` (`proxy`, `agentOptions`, `gzip`, `jar`, `qs`, `followRedirect`, ...) are no longer supported. To use a proxy, pass a custom `agent` (e.g. via [`https-proxy-agent`](https://www.npmjs.com/package/https-proxy-agent)).
 
 
 
